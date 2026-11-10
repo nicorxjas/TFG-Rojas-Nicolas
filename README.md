@@ -13,7 +13,7 @@ Instalar en Windows:
 - Node.js 20.9 o superior, con npm.
 - Python 3.11 o superior.
 - Docker Desktop.
-- [Codex CLI](https://developers.openai.com/codex/cli), utilizado por la configuración actual para conectarse al LLM, con una cuenta que tenga acceso al modelo indicado en la configuración privada.
+- [Codex CLI](https://developers.openai.com/codex/cli), utilizado por la configuración actual para conectarse al LLM, con una cuenta que tenga acceso al modelo `gpt-5.6-luna` indicado abajo.
 
 Se necesita conexión a Internet para acceder a Supabase y al LLM.
 
@@ -26,16 +26,66 @@ git clone https://github.com/nicorxjas/TFG-Rojas-Nicolas.git
 cd TFG-Rojas-Nicolas
 ```
 
-El autor debe facilitar por un canal privado los siguientes archivos, o las instrucciones y valores para crearlos:
+Crear estos tres archivos de configuración. Se pueden copiar las plantillas **solo si todavía no existen los archivos de destino**, para conservar cualquier configuración local:
 
-| Archivo | Para qué sirve |
-| --- | --- |
-| `backend/.env` | Conexión al Supabase existente y configuración del LLM |
-| `frontend/.env.local` | Conexión de la interfaz al mismo Supabase |
-| `cube/.env` | Configuración del servicio que consulta el Excel |
-| `data/Datos.xlsx` | Datos para realizar las pruebas |
+```powershell
+if (!(Test-Path backend/.env)) { Copy-Item backend/.env.example backend/.env }
+if (!(Test-Path frontend/.env.local)) { Copy-Item frontend/.env.example frontend/.env.local }
+if (!(Test-Path cube/.env)) { Copy-Item cube/.env.example cube/.env }
+```
 
-Colocar cada archivo en la ubicación indicada. **Las credenciales se entregan por separado y no se publican en GitHub.** Si ya están presentes en el equipo, conservarlos.
+Después, completar los tres archivos con los bloques de abajo. Esta demo utiliza **Excel como fuente de datos**, el proyecto Supabase ya configurado y **Codex con `gpt-5.6-luna`**. Este README reúne los valores necesarios para preparar el entorno de evaluación.
+
+#### Backend: `backend/.env`
+
+```dotenv
+SUPABASE_URL=https://nfcbzgykivueumciocuy.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5mY2J6Z3lraXZ1ZXVtY2lvY3V5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTU2MTUyOSwiZXhwIjoyMDkxMTM3NTI5fQ.Cc1rQ2kYNRtQRkHZLM8ELZ6dzerdKjMXqF_2haZQLFA
+SUPABASE_JWT_SECRET=e6f09e5d-ace3-4304-903c-9b5b39942888
+
+LLM_PROVIDER=codex
+LLM_MODEL=gpt-5.6-luna
+CODEX_REASONING_EFFORT=low
+CODEX_TIMEOUT_SECONDS=120
+CODEX_EXECUTABLE=
+
+CUBE_API_URL=http://localhost:4000/cubejs-api/v1/load
+CUBEJS_API_SECRET=
+
+REPORT_LLM_MODEL=
+REPORT_LLM_TIMEOUT_SECONDS=
+REPORT_LLM_MAX_TOKENS=
+REPORT_LLM_MAX_RETRIES=5
+SEMANTIC_CATALOG_CACHE_TTL_SECONDS=30
+BI_TRACE_DIR=backend/runtime/bi-traces
+DATABASE_URL=
+```
+
+#### Interfaz: `frontend/.env.local`
+
+```dotenv
+NEXT_PUBLIC_SUPABASE_URL=https://nfcbzgykivueumciocuy.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_AkTnNLkr7K0JsM1JQTWImA_IiWjHXS_
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+`NEXT_PUBLIC_SUPABASE_ANON_KEY` contiene la clave pública de Supabase. La clave `SUPABASE_SERVICE_ROLE_KEY` se utiliza únicamente en el backend.
+
+#### Servicio Excel: `cube/.env`
+
+```dotenv
+CUBEJS_DB_TYPE=duckdb
+CUBEJS_DB_NAME=/data/nyro_analytics.db
+CUBEJS_DB_DUCKDB_DATABASE_PATH=/data/nyro_analytics.db
+CUBEJS_DEV_MODE=true
+CUBEJS_API_SECRET=nyro_super_secret_token_2026
+```
+
+Copiar cada bloque completo al archivo indicado. Los campos vacíos se dejan vacíos: los informes heredan el modelo general y sus límites del código, y `DATABASE_URL` solo se utiliza en scripts auxiliares de mantenimiento. `CODEX_EXECUTABLE` solo se completa con la ruta a `codex.exe` si no se detecta automáticamente.
+
+En `backend/.env`, `CUBEJS_API_SECRET` queda vacío porque el servicio Cube se ejecuta localmente en modo de desarrollo (`CUBEJS_DEV_MODE=true`). El valor incluido en `cube/.env` es el secreto de firma del servicio, no un token JWT para el backend.
+
+El archivo `.env` de la raíz no se utiliza. Guardar cada archivo en su ruta, con un solo valor por variable y sin comentarios al final de las líneas. Reiniciar backend, frontend o Cube después de modificar su configuración. Los archivos `.env` locales están excluidos de Git.
 
 Para la conexión al LLM, iniciar sesión en Codex CLI con una cuenta que tenga acceso al modelo configurado. Esta sesión es independiente de la cuenta que se creará dentro de BI AI:
 
@@ -86,14 +136,14 @@ Mantener ambas terminales abiertas. Si el puerto 3000 está ocupado, liberarlo a
 4. Si Supabase solicita confirmación, abrir el correo recibido y confirmar la cuenta; revisar también la carpeta de spam.
 5. Abrir **[http://localhost:3000/login](http://localhost:3000/login)** e ingresar con las credenciales elegidas. El registro actual no redirige automáticamente ni muestra un aviso de éxito en pantalla.
 
-El autor debe dejar habilitado el registro por correo y contraseña en el proyecto Supabase compartido y configurar `http://localhost:3000` como URL del sitio. La confirmación depende de la configuración de ese proyecto; ante un correo que no llega, contactar al autor.
+Ante un correo que no llega, contactar al autor.
 
 ### 6. Cargar el Excel
 
 1. Abrir **[Configuración > Empresa](http://localhost:3000/settings/empresa)**, completar Empresa, Sector y Detalles y pulsar **Guardar cambios**. **Sector y Detalles son necesarios** para procesar el Excel.
 2. Para los datos de ejemplo se puede usar: Empresa `Empresa Demo`, Sector `Comercio` y Detalles `Empresa que analiza ventas e inventario por cliente, producto y fecha. Busca conocer la evolución de las ventas y detectar oportunidades comerciales.`
 3. Abrir **[Configuración > Conectores](http://localhost:3000/settings/conectores)** y seleccionar **Excel**.
-4. Elegir el archivo `Datos.xlsx` facilitado por el autor y pulsar **Procesar workbook**. Puede estar en `data/Datos.xlsx` o en otra carpeta del equipo: se selecciona desde la interfaz.
+4. Elegir el archivo `Datos.xlsx` facilitado por el autor y pulsar **Procesar workbook**. 
 5. Esperar a que termine el procesamiento y se abra **Onboarding semántico**.
 6. Revisar los campos detectados y pulsar **Aprobar conceptos** si son correctos.
 7. Revisar los indicadores base y pulsar **Aprobar** en cada uno de los pendientes. Si se generan sugerencias adicionales, aprobar o rechazar cada sugerencia según corresponda.
