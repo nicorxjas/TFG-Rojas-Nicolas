@@ -1,0 +1,37 @@
+[
+  {
+    "id": "care_definition", "prompt": "Cual es la continuidad asistencial?",
+    "metrics": [
+      {"key": "Care.a", "name": "Indice A", "description": "Proporcion de episodios elegibles con seguimiento completado; excluye derivaciones.", "format": "percent"},
+      {"key": "Care.b", "name": "Indice B", "description": "Cantidad de registros cargados.", "format": "number"}
+    ], "expected": {"outcome": "query", "measures": ["Care.a"]}
+  },
+  {
+    "id": "education_alias", "prompt": "Mostrame la permanencia por sede",
+    "metrics": [{"key": "Education.rate", "name": "Indice de reinscripcion", "aliases": ["permanencia"], "description": "Alumnos reinscritos sobre la cohorte inicial; excluye egresados.", "format": "percent"}],
+    "fields": [{"semantic_key": "Education.site", "business_name": "Sede", "field_kind": "dimension"}],
+    "expected": {"outcome": "query", "measures": ["Education.rate"], "dimensions": ["Education.site"]}
+  },
+  {
+    "id": "operations_filter", "prompt": "Cual es la disponibilidad tecnica de la planta Norte?",
+    "metrics": [{"key": "Ops.rate", "name": "Disponibilidad tecnica", "description": "Minutos disponibles sobre minutos programados.", "format": "percent"}],
+    "fields": [{"semantic_key": "Ops.plant", "business_name": "Planta", "field_kind": "dimension"}],
+    "expected": {"outcome": "query", "measures": ["Ops.rate"], "filter": {"member": "Ops.plant", "operator": "equals", "values": ["Norte"]}}
+  },
+  {
+    "id": "ambiguous_criterion", "prompt": "Cual es nuestra mejor sede?",
+    "metrics": [{"key": "Education.rate", "name": "Permanencia", "format": "percent"}, {"key": "Education.enrolled", "name": "Matriculados", "format": "number"}],
+    "fields": [{"semantic_key": "Education.site", "business_name": "Sede", "field_kind": "dimension"}],
+    "expected": {"outcome": "clarification"}
+  },
+  {
+    "id": "unavailable_concept", "prompt": "Cual es la huella hidrica?",
+    "metrics": [{"key": "Ops.hours", "name": "Horas operativas", "description": "Duracion de actividad registrada.", "unit": "hours"}],
+    "expected": {"outcome": "missing"}
+  },
+  {
+    "id": "catalog_discovery", "prompt": "Cual es nuestro uptime?", "distractors": 80,
+    "metrics": [{"key": "Ops.target", "name": "Disponibilidad tecnica", "description": "Tiempo de funcionamiento dividido por tiempo previsto, excluye mantenimiento acordado.", "format": "percent"}],
+    "expected": {"outcome": "query", "measures": ["Ops.target"]}
+  }
+]

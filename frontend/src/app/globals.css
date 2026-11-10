@@ -1,0 +1,672 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter Variable", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-heading: "Inter Variable", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+    font-feature-settings: "cv01" 1, "ss03" 1;
+  }
+
+  body {
+    font-feature-settings: "cv01" 1, "ss03" 1;
+  }
+
+  .font-mono {
+    font-feature-settings: normal;
+    font-variant-numeric: tabular-nums;
+  }
+
+  [data-chart],
+  .recharts-wrapper,
+  .recharts-tooltip-wrapper {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Fix browser autofill styling for dark mode inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px #111 inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* Custom "Coded" Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(82, 82, 91, 0.4); /* zinc-600 with opacity */
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.7); /* zinc-400 with opacity */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(82, 82, 91, 0.4) transparent;
+}
+
+@keyframes wave {
+  0%, 40%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-wave {
+  display: inline-block;
+  animation: wave 1.6s ease-in-out infinite;
+}
+
+.nyro-agent-emoji-picker .epr-emoji-category-label {
+  position: static !important;
+  height: 18px !important;
+  padding: 0 2px !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  color: rgb(161 161 170) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 18px !important;
+}
+
+.nyro-agent-emoji-picker .epr-emoji-category-content {
+  margin-top: 2px !important;
+}
+
+:root {
+  color-scheme: light;
+  --nyro-light-bg: #f7f8fa;
+  --nyro-light-panel: #ffffff;
+  --nyro-light-panel-muted: rgba(255, 255, 255, 0.78);
+  --nyro-light-panel-soft: rgba(255, 255, 255, 0.58);
+  --nyro-light-control: #eef0f3;
+  --nyro-light-control-strong: #e4e6ea;
+  --nyro-light-hover: #f1f2f4;
+  --nyro-light-border: #e4e4e7;
+  --nyro-light-border-strong: #d4d4d8;
+  --nyro-light-text: #18181b;
+  --nyro-light-text-secondary: #52525b;
+  --nyro-light-text-muted: #71717a;
+  --nyro-light-text-faint: #a1a1aa;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) body {
+  background: var(--nyro-light-bg);
+  color: var(--nyro-light-text);
+}
+
+html:not(.dark) .bg-zinc-950,
+html:not(.dark) .bg-\[\#050505\],
+html:not(.dark) .bg-\[\#0a0a0b\],
+html:not(.dark) .bg-\[\#0a0a0c\],
+html:not(.dark) .bg-\[\#0A0A0A\],
+html:not(.dark) .bg-\[\#0a0a0a\],
+html:not(.dark) .bg-\[\#060608\],
+html:not(.dark) .bg-\[\#111111\],
+html:not(.dark) .bg-\[\#0b0b0b\],
+html:not(.dark) .bg-\[\#0b0b0c\],
+html:not(.dark) .bg-\[\#0d0d0f\],
+html:not(.dark) .bg-\[\#0d0d10\],
+html:not(.dark) .bg-\[\#080808\],
+html:not(.dark) .bg-\[\#070707\] {
+  background-color: var(--nyro-light-bg) !important;
+}
+
+html:not(.dark) .bg-\[\#0a0a0c\]\/95,
+html:not(.dark) .bg-\[\#060608\]\/95,
+html:not(.dark) .bg-\[\#080808\]\/70,
+html:not(.dark) .bg-\[\#101011\]\/95 {
+  background-color: rgba(247, 248, 250, 0.92) !important;
+}
+
+html:not(.dark) .bg-zinc-950\/30,
+html:not(.dark) .bg-zinc-950\/35,
+html:not(.dark) .bg-zinc-950\/40,
+html:not(.dark) .bg-zinc-950\/50,
+html:not(.dark) .bg-zinc-950\/60,
+html:not(.dark) .bg-zinc-950\/70,
+html:not(.dark) .bg-zinc-950\/80,
+html:not(.dark) .bg-zinc-950\/90,
+html:not(.dark) .bg-zinc-950\/95 {
+  background-color: rgba(247, 248, 250, 0.88) !important;
+}
+
+html:not(.dark) .bg-zinc-900,
+html:not(.dark) .bg-\[\#101011\],
+html:not(.dark) .bg-\[\#111113\],
+html:not(.dark) .bg-\[\#111\],
+html:not(.dark) .bg-\[\#18181a\],
+html:not(.dark) .bg-\[\#09090b\],
+html:not(.dark) .bg-\[\#0f0f11\],
+html:not(.dark) .bg-\[\#0c0c0e\] {
+  background-color: var(--nyro-light-panel) !important;
+}
+
+html:not(.dark) .bg-zinc-800,
+html:not(.dark) .bg-zinc-800\/30,
+html:not(.dark) .bg-zinc-800\/40,
+html:not(.dark) .bg-zinc-800\/50,
+html:not(.dark) .bg-zinc-800\/60,
+html:not(.dark) .bg-zinc-800\/70,
+html:not(.dark) .bg-zinc-800\/80,
+html:not(.dark) .bg-zinc-800\/90,
+html:not(.dark) .bg-\[\#1a1a1a\],
+html:not(.dark) .bg-\[\#1a1a1c\],
+html:not(.dark) .bg-\[\#1d1d1d\],
+html:not(.dark) .bg-\[\#202020\],
+html:not(.dark) .bg-\[\#242424\],
+html:not(.dark) .bg-\[\#2a2a2a\],
+html:not(.dark) .bg-\[\#383838\] {
+  background-color: var(--nyro-light-control) !important;
+}
+
+html:not(.dark) .bg-zinc-700,
+html:not(.dark) .bg-\[\#222\],
+html:not(.dark) .bg-\[\#333\],
+html:not(.dark) .bg-\[\#3a3a3a\],
+html:not(.dark) .bg-\[\#444\],
+html:not(.dark) .bg-\[\#777\] {
+  background-color: var(--nyro-light-control-strong) !important;
+}
+
+html:not(.dark) .bg-zinc-900\/10,
+html:not(.dark) .bg-zinc-900\/20,
+html:not(.dark) .bg-zinc-900\/30,
+html:not(.dark) .bg-zinc-900\/35,
+html:not(.dark) .bg-zinc-900\/40,
+html:not(.dark) .bg-zinc-900\/45,
+html:not(.dark) .bg-zinc-900\/50,
+html:not(.dark) .bg-zinc-900\/55,
+html:not(.dark) .bg-zinc-900\/60,
+html:not(.dark) .bg-zinc-900\/70,
+html:not(.dark) .bg-zinc-900\/75,
+html:not(.dark) .bg-zinc-900\/80,
+html:not(.dark) .bg-zinc-900\/90,
+html:not(.dark) .bg-zinc-900\/95 {
+  background-color: var(--nyro-light-panel-muted) !important;
+}
+
+html:not(.dark) .hover\:bg-zinc-950:hover,
+html:not(.dark) .hover\:bg-zinc-900:hover,
+html:not(.dark) .hover\:bg-zinc-900\/10:hover,
+html:not(.dark) .hover\:bg-zinc-900\/20:hover,
+html:not(.dark) .hover\:bg-zinc-900\/40:hover,
+html:not(.dark) .hover\:bg-zinc-900\/50:hover,
+html:not(.dark) .hover\:bg-zinc-900\/55:hover,
+html:not(.dark) .hover\:bg-zinc-900\/60:hover,
+html:not(.dark) .hover\:bg-zinc-900\/80:hover,
+html:not(.dark) .hover\:bg-zinc-800:hover,
+html:not(.dark) .hover\:bg-zinc-800\/40:hover,
+html:not(.dark) .hover\:bg-zinc-800\/50:hover,
+html:not(.dark) .hover\:bg-zinc-800\/60:hover,
+html:not(.dark) .hover\:bg-zinc-800\/80:hover,
+html:not(.dark) .hover\:bg-zinc-700:hover,
+html:not(.dark) .group:hover .group-hover\:bg-zinc-800,
+html:not(.dark) .group:hover .group-hover\:bg-zinc-900\/20,
+html:not(.dark) .group:hover .group-hover\:bg-zinc-900\/80 {
+  background-color: var(--nyro-light-hover) !important;
+}
+
+html:not(.dark) .border-zinc-950,
+html:not(.dark) .border-zinc-900,
+html:not(.dark) .border-zinc-900\/30,
+html:not(.dark) .border-zinc-900\/40,
+html:not(.dark) .border-zinc-900\/50,
+html:not(.dark) .border-zinc-900\/60,
+html:not(.dark) .border-zinc-900\/70,
+html:not(.dark) .border-zinc-900\/80,
+html:not(.dark) .border-zinc-900\/90,
+html:not(.dark) .border-zinc-800,
+html:not(.dark) .border-zinc-800\/30,
+html:not(.dark) .border-zinc-800\/40,
+html:not(.dark) .border-zinc-800\/50,
+html:not(.dark) .border-zinc-800\/60,
+html:not(.dark) .border-zinc-800\/70,
+html:not(.dark) .border-zinc-800\/80,
+html:not(.dark) .border-zinc-800\/90,
+html:not(.dark) .border-zinc-700,
+html:not(.dark) .border-zinc-700\/70,
+html:not(.dark) .border-zinc-700\/80,
+html:not(.dark) .border-zinc-600,
+html:not(.dark) .border-\[\#1b1b1b\],
+html:not(.dark) .border-\[\#1f1f1f\],
+html:not(.dark) .border-\[\#1f1f23\],
+html:not(.dark) .border-\[\#242424\],
+html:not(.dark) .border-\[\#202020\],
+html:not(.dark) .border-\[\#222\],
+html:not(.dark) .border-\[\#252525\],
+html:not(.dark) .border-\[\#272727\],
+html:not(.dark) .border-\[\#27272a\],
+html:not(.dark) .border-\[\#282828\],
+html:not(.dark) .border-\[\#2a2a2a\],
+html:not(.dark) .border-\[\#2a2a2e\],
+html:not(.dark) .border-\[\#1c1c1f\],
+html:not(.dark) .border-\[\#303030\],
+html:not(.dark) .border-\[\#343434\],
+html:not(.dark) .border-\[\#444\],
+html:not(.dark) .border-\[\#555\] {
+  border-color: var(--nyro-light-border) !important;
+}
+
+html:not(.dark) .divide-zinc-950 > :not(:last-child),
+html:not(.dark) .divide-zinc-900 > :not(:last-child),
+html:not(.dark) .divide-zinc-800 > :not(:last-child) {
+  border-color: var(--nyro-light-border) !important;
+}
+
+html:not(.dark) .hover\:border-zinc-800:hover,
+html:not(.dark) .hover\:border-zinc-700:hover,
+html:not(.dark) .hover\:border-zinc-700\/80:hover,
+html:not(.dark) .hover\:border-zinc-600:hover,
+html:not(.dark) .group:hover .group-hover\:border-zinc-700 {
+  border-color: var(--nyro-light-border-strong) !important;
+}
+
+html:not(.dark) .text-white,
+html:not(.dark) .text-zinc-50,
+html:not(.dark) .text-zinc-100,
+html:not(.dark) .text-zinc-200,
+html:not(.dark) .text-\[\#d8d8d8\] {
+  color: var(--nyro-light-text) !important;
+}
+
+html:not(.dark) .text-zinc-300,
+html:not(.dark) .text-zinc-400,
+html:not(.dark) .text-\[\#8f8f8f\] {
+  color: var(--nyro-light-text-secondary) !important;
+}
+
+html:not(.dark) .text-zinc-500,
+html:not(.dark) .text-zinc-600,
+html:not(.dark) .text-zinc-700,
+html:not(.dark) .text-\[\#6f6f6f\] {
+  color: var(--nyro-light-text-muted) !important;
+}
+
+html:not(.dark) .text-\[\#f4f4f4\],
+html:not(.dark) .text-\[\#bdbdbd\],
+html:not(.dark) .text-\[\#d8d8d8\] {
+  color: var(--nyro-light-text) !important;
+}
+
+html:not(.dark) .text-\[\#b7b7b7\],
+html:not(.dark) .text-\[\#a5a5a5\],
+html:not(.dark) .text-\[\#9d9d9d\],
+html:not(.dark) .text-\[\#888\],
+html:not(.dark) .text-\[\#8a8a8a\],
+html:not(.dark) .text-\[\#8e8e8e\],
+html:not(.dark) .text-\[\#767676\],
+html:not(.dark) .text-\[\#777\],
+html:not(.dark) .text-\[\#757575\],
+html:not(.dark) .text-\[\#747474\],
+html:not(.dark) .text-\[\#7c7c7c\],
+html:not(.dark) .text-\[\#c8c8c8\],
+html:not(.dark) .text-\[\#c8d7f0\],
+html:not(.dark) .text-\[\#a9b8ca\] {
+  color: var(--nyro-light-text-secondary) !important;
+}
+
+html:not(.dark) .hover\:text-white:hover,
+html:not(.dark) .hover\:text-zinc-100:hover,
+html:not(.dark) .hover\:text-zinc-200:hover,
+html:not(.dark) .hover\:text-zinc-300:hover,
+html:not(.dark) .hover\:text-zinc-400:hover,
+html:not(.dark) .group:hover .group-hover\:text-zinc-100,
+html:not(.dark) .group:hover .group-hover\:text-zinc-200,
+html:not(.dark) .group:hover .group-hover\:text-zinc-300,
+html:not(.dark) .group:hover .group-hover\:text-zinc-400 {
+  color: var(--nyro-light-text) !important;
+}
+
+html:not(.dark) .placeholder\:text-zinc-600::placeholder,
+html:not(.dark) .placeholder\:text-zinc-500::placeholder,
+html:not(.dark) .placeholder-zinc-600::placeholder,
+html:not(.dark) .placeholder-zinc-500::placeholder {
+  color: var(--nyro-light-text-faint) !important;
+}
+
+html:not(.dark) input,
+html:not(.dark) textarea,
+html:not(.dark) select {
+  color-scheme: light;
+}
+
+html:not(.dark) input.bg-zinc-950,
+html:not(.dark) textarea.bg-zinc-950,
+html:not(.dark) select.bg-zinc-950 {
+  background-color: var(--nyro-light-panel) !important;
+  color: var(--nyro-light-text) !important;
+}
+
+html:not(.dark) input:-webkit-autofill,
+html:not(.dark) input:-webkit-autofill:hover,
+html:not(.dark) input:-webkit-autofill:focus,
+html:not(.dark) input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px #fff inset !important;
+  -webkit-text-fill-color: var(--nyro-light-text) !important;
+}
+
+html:not(.dark) button.bg-zinc-100,
+html:not(.dark) a.bg-zinc-100,
+html:not(.dark) .inline-flex.bg-zinc-100 {
+  background-color: var(--nyro-light-text) !important;
+  color: #fff !important;
+}
+
+html:not(.dark) button.hover\:bg-white:hover,
+html:not(.dark) a.hover\:bg-white:hover,
+html:not(.dark) .inline-flex.hover\:bg-white:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+html:not(.dark) .shadow-black\/30,
+html:not(.dark) .shadow-black\/40,
+html:not(.dark) .shadow-black\/50,
+html:not(.dark) .shadow-black\/60 {
+  --tw-shadow-color: rgba(24, 24, 27, 0.08) !important;
+}
+
+html:not(.dark) .bg-gradient-to-b,
+html:not(.dark) .bg-gradient-to-t {
+  --tw-gradient-from: rgba(247, 248, 250, 0.98) var(--tw-gradient-from-position) !important;
+  --tw-gradient-via: rgba(247, 248, 250, 0.94) var(--tw-gradient-via-position) !important;
+  --tw-gradient-to: rgba(247, 248, 250, 0) var(--tw-gradient-to-position) !important;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.55);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html:not(.dark) * {
+  scrollbar-color: rgba(161, 161, 170, 0.55) transparent;
+}
+
+/* Semantic onboarding uses isolated tokens so it can follow light/dark theme safely. */
+.semantic-onboarding {
+  --so-bg: #f7f8fa;
+  --so-header: rgba(255, 255, 255, 0.94);
+  --so-panel: rgba(255, 255, 255, 0.9);
+  --so-card: #ffffff;
+  --so-card-hover: #f4f6f8;
+  --so-muted-surface: rgba(24, 24, 27, 0.045);
+  --so-border: rgba(24, 24, 27, 0.12);
+  --so-border-strong: rgba(24, 24, 27, 0.22);
+  --so-text: #18181b;
+  --so-text-soft: #3f3f46;
+  --so-text-muted: #71717a;
+  --so-text-faint: #a1a1aa;
+  --so-action-bg: #18181b;
+  --so-action-text: #ffffff;
+  --so-success: #047857;
+  --so-info: #0369a1;
+  --so-warning: #92400e;
+  color-scheme: light;
+  background-color: var(--so-bg) !important;
+  color: var(--so-text) !important;
+}
+
+html.dark .semantic-onboarding {
+  --so-bg: #050506;
+  --so-header: rgba(8, 8, 10, 0.96);
+  --so-panel: rgba(13, 14, 17, 0.92);
+  --so-card: #111216;
+  --so-card-hover: #17181d;
+  --so-muted-surface: rgba(0, 0, 0, 0.34);
+  --so-border: rgba(255, 255, 255, 0.12);
+  --so-border-strong: rgba(255, 255, 255, 0.22);
+  --so-text: #f6f8fc;
+  --so-text-soft: #cbd3df;
+  --so-text-muted: #93a0af;
+  --so-text-faint: #748094;
+  --so-action-bg: #f7f8fb;
+  --so-action-text: #07080a;
+  --so-success: #b9f5d0;
+  --so-info: #c9e8ff;
+  --so-warning: #fde68a;
+  color-scheme: dark;
+}
+
+.semantic-onboarding.bg-\[\#060607\],
+.semantic-onboarding .bg-\[\#060607\] {
+  background-color: var(--so-bg) !important;
+}
+
+.semantic-onboarding .bg-\[\#09090a\]\/95 {
+  background-color: var(--so-header) !important;
+}
+
+.semantic-onboarding .bg-zinc-950,
+.semantic-onboarding .bg-zinc-950\/35,
+.semantic-onboarding .bg-zinc-950\/45,
+.semantic-onboarding .bg-zinc-950\/50,
+.semantic-onboarding .bg-\[\#101012\] {
+  background-color: var(--so-panel) !important;
+}
+
+.semantic-onboarding .bg-zinc-900,
+.semantic-onboarding .bg-zinc-900\/40,
+.semantic-onboarding .hover\:bg-zinc-900:hover {
+  background-color: var(--so-card-hover) !important;
+}
+
+.semantic-onboarding .bg-zinc-800 {
+  background-color: var(--so-card-hover) !important;
+}
+
+.semantic-onboarding .bg-black\/20,
+.semantic-onboarding .bg-black\/25 {
+  background-color: var(--so-muted-surface) !important;
+}
+
+.semantic-onboarding .border-zinc-900,
+.semantic-onboarding .border-zinc-800,
+.semantic-onboarding .border-zinc-800\/80,
+.semantic-onboarding .border-zinc-700,
+.semantic-onboarding .border-zinc-600 {
+  border-color: var(--so-border) !important;
+}
+
+.semantic-onboarding .hover\:border-zinc-700:hover {
+  border-color: var(--so-border-strong) !important;
+}
+
+.semantic-onboarding .text-white,
+.semantic-onboarding .text-zinc-50,
+.semantic-onboarding .text-zinc-100,
+.semantic-onboarding .text-zinc-200 {
+  color: var(--so-text) !important;
+}
+
+.semantic-onboarding .text-zinc-300,
+.semantic-onboarding .text-zinc-400 {
+  color: var(--so-text-soft) !important;
+}
+
+.semantic-onboarding .text-zinc-500 {
+  color: var(--so-text-muted) !important;
+}
+
+.semantic-onboarding .text-zinc-600,
+.semantic-onboarding .text-zinc-700 {
+  color: var(--so-text-faint) !important;
+}
+
+.semantic-onboarding .text-emerald-100,
+.semantic-onboarding .text-emerald-200,
+.semantic-onboarding .text-emerald-300 {
+  color: var(--so-success) !important;
+}
+
+.semantic-onboarding .text-sky-200 {
+  color: var(--so-info) !important;
+}
+
+.semantic-onboarding .text-amber-200 {
+  color: var(--so-warning) !important;
+}
+
+.semantic-onboarding button.bg-zinc-100,
+.semantic-onboarding .inline-flex.bg-zinc-100 {
+  background-color: var(--so-action-bg) !important;
+  color: var(--so-action-text) !important;
+}
+
+.semantic-onboarding button.hover\:bg-white:hover,
+.semantic-onboarding .inline-flex.hover\:bg-white:hover {
+  filter: brightness(1.04);
+}
+
+.semantic-onboarding input.bg-zinc-950,
+.semantic-onboarding textarea.bg-zinc-950 {
+  background-color: var(--so-card) !important;
+  color: var(--so-text) !important;
+}

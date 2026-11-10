@@ -1,0 +1,30 @@
+[
+  {
+    "id": "health_opaque_definition",
+    "prompt": "Mostrame la adherencia por especialidad.",
+    "metrics": [{"key": "P8.m1", "name": "Adherencia", "description": "Sesiones completadas sobre sesiones programadas; excluye sesiones canceladas por el prestador.", "format": "percent"}, {"key": "P8.m2", "name": "Sesiones ingresadas", "format": "number"}],
+    "fields": [{"semantic_key": "P8.d4", "business_name": "Especialidad", "field_kind": "dimension", "data_type": "string"}],
+    "expected": {"outcome": "query", "measures": ["P8.m1"], "dimensions": ["P8.d4"]}
+  },
+  {
+    "id": "energy_units_and_scalar_period",
+    "prompt": "Necesito un único valor de energía consumida durante mayo de 2026, sin desglose.",
+    "metrics": [{"key": "T9.a", "name": "Energía consumida", "description": "Suma de lecturas de consumo registradas, expresada en kWh.", "unit": "kWh"}, {"key": "T9.b", "name": "Potencia pico", "description": "Máxima demanda registrada, en kW.", "unit": "kW"}],
+    "fields": [{"semantic_key": "T9.z", "business_name": "Fecha de lectura", "field_kind": "time", "data_type": "date"}],
+    "expected": {"outcome": "query", "measures": ["T9.a"], "dimensions": [], "timeDimensions": [{"dimension": "T9.z", "dateRange": ["2026-05-01", "2026-05-31"]}]}
+  },
+  {
+    "id": "operations_missing_conversion_definition",
+    "prompt": "Convertí la energía a toneladas equivalentes usando el factor real de cada equipo.",
+    "metrics": [{"key": "U2.a", "name": "Energía consumida", "description": "Consumo medido en kWh.", "unit": "kWh"}],
+    "fields": [{"semantic_key": "U2.x", "business_name": "Equipo", "field_kind": "dimension", "data_type": "string"}],
+    "expected": {"outcome": "missing"}
+  },
+  {
+    "id": "education_no_unasked_entity_grain",
+    "prompt": "¿Cuál es la permanencia global? Un único resultado, sin agrupar por sede.",
+    "metrics": [{"key": "R6.m1", "name": "Permanencia", "description": "Estudiantes reinscriptos sobre la cohorte inicial, excluyendo egresados.", "format": "percent"}],
+    "fields": [{"semantic_key": "R6.z", "business_name": "Sede", "field_kind": "dimension", "data_type": "string"}],
+    "expected": {"outcome": "query", "measures": ["R6.m1"], "dimensions": []}
+  }
+]

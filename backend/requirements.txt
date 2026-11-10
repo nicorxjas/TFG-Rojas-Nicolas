@@ -1,0 +1,7 @@
+duckdb>=1.4,<2
+fastapi
+httpx
+psycopg2-binary
+pydantic
+PyJWT
+uvicorn[standard]

@@ -1,0 +1,284 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3000" height="2200" viewBox="0 0 3000 2200" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama entidad-relación de Nyro</title>
+  <desc id="desc">Esquema de la base de datos Supabase, organizado por identidad, conectores, catálogo semántico, agentes e informes. Se omiten tableros y gráficos.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="one" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+      <path d="M4 1V11M8 1V11" stroke="#64748b" stroke-width="1.5" fill="none"/>
+    </marker>
+    <marker id="many" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M1 7L12 1M1 7L12 7M1 7L12 13" stroke="#64748b" stroke-width="1.5" fill="none"/>
+    </marker>
+    <style>
+      .bg{fill:#f8fafc}.band{fill:#ffffff;stroke:#e2e8f0;stroke-width:2}.band-title{font:600 22px Inter,Segoe UI,Arial,sans-serif;fill:#334155;letter-spacing:.8px}.entity{filter:url(#shadow)}
+      .box{fill:#fff;stroke:#cbd5e1;stroke-width:2}.head-auth{fill:#eef2ff}.head-core{fill:#ecfeff}.head-sem{fill:#ecfdf5}.head-ai{fill:#fff7ed}.head-report{fill:#fdf2f8}
+      .entity-title{font:600 21px Inter,Segoe UI,Arial,sans-serif;fill:#0f172a}.field{font:16px Consolas,Menlo,monospace;fill:#334155}.muted{fill:#64748b}.pk{fill:#7c3aed;font-weight:700}.fk{fill:#0369a1;font-weight:700}.uk{fill:#047857;font-weight:700}
+      .rel{fill:none;stroke:#64748b;stroke-width:2;marker-start:url(#one);marker-end:url(#many)}.rel-dash{fill:none;stroke:#94a3b8;stroke-width:2;stroke-dasharray:8 7;marker-start:url(#one);marker-end:url(#many)}
+      .legend{font:16px Inter,Segoe UI,Arial,sans-serif;fill:#475569}.subtitle{font:18px Inter,Segoe UI,Arial,sans-serif;fill:#64748b}.title{font:700 34px Inter,Segoe UI,Arial,sans-serif;fill:#0f172a}
+    </style>
+  </defs>
+  <rect class="bg" width="3000" height="2200"/>
+  <text class="title" x="70" y="62">Nyro · Diagrama entidad–relación</text>
+  <text class="subtitle" x="70" y="94">Supabase / PostgreSQL · Migraciones 01–14 · Sin tableros ni gráficos · Campos secundarios resumidos</text>
+
+  <rect class="band" x="45" y="125" width="610" height="2015" rx="22"/>
+  <rect class="band" x="675" y="125" width="610" height="2015" rx="22"/>
+  <rect class="band" x="1305" y="125" width="740" height="2015" rx="22"/>
+  <rect class="band" x="2065" y="125" width="890" height="2015" rx="22"/>
+  <text class="band-title" x="75" y="168">IDENTIDAD Y CONFIGURACIÓN</text>
+  <text class="band-title" x="705" y="168">CONECTORES</text>
+  <text class="band-title" x="1335" y="168">CATÁLOGO SEMÁNTICO</text>
+  <text class="band-title" x="2095" y="168">AGENTES, ANÁLISIS E INFORMES</text>
+
+  <!-- Relationships are rendered behind entities. Parent = double bar; child = crow foot. -->
+  <g aria-label="Relaciones">
+    <!-- auth.users -->
+    <path class="rel-dash" d="M350 410V455"/>
+    <path class="rel-dash" d="M350 410V675"/>
+    <path class="rel-dash" d="M620 300H690V300"/>
+    <path class="rel-dash" d="M620 330H665V1190H690"/>
+    <path class="rel-dash" d="M620 350H650V1450H690"/>
+    <path class="rel-dash" d="M620 370H640V1690H690"/>
+    <path class="rel-dash" d="M620 390H630V1940H690"/>
+    <path class="rel-dash" d="M620 280H660V940H690"/>
+    <path class="rel-dash" d="M620 260H2050V650H2080"/>
+    <path class="rel-dash" d="M620 240H2035V1590H2080"/>
+    <!-- connectors -->
+    <path class="rel" d="M620 1070H650V430H690"/>
+    <path class="rel" d="M620 1100H665V710H690"/>
+    <path class="rel" d="M620 1130H675V960H690"/>
+    <path class="rel" d="M970 585V635"/>
+    <path class="rel" d="M1250 330H1320V300H1335"/>
+    <path class="rel" d="M1250 370H1300V1430H1335"/>
+    <path class="rel" d="M1250 400H1290V1695H1335"/>
+    <path class="rel" d="M1250 430H1280V1945H1335"/>
+    <!-- semantic catalog -->
+    <path class="rel" d="M1670 430V485"/>
+    <path class="rel" d="M1670 430V755"/>
+    <path class="rel" d="M1650 665V755"/>
+    <path class="rel" d="M1700 430V1055"/>
+    <path class="rel" d="M1730 430V1305"/>
+    <!-- agents / skills / templates / reports -->
+    <path class="rel" d="M2360 405V455"/>
+    <path class="rel" d="M2620 610H2740V405"/>
+    <path class="rel" d="M2520 405V700"/>
+    <path class="rel" d="M2630 855H2740V700"/>
+    <path class="rel" d="M2350 855V920"/>
+    <path class="rel" d="M2630 1080H2750V920"/>
+    <path class="rel" d="M2630 1040H2930V700H2890"/>
+    <!-- analysis -->
+    <path class="rel" d="M2350 1270V1340"/>
+    <path class="rel" d="M2630 1180H2920V1340H2890"/>
+    <path class="rel" d="M2630 1140H2910V920H2890"/>
+    <path class="rel" d="M2630 1080H2900V210H2890"/>
+    <path class="rel" d="M2350 1510V1580"/>
+    <path class="rel" d="M2620 1720H2740V1510"/>
+  </g>
+
+  <!-- Identity -->
+  <g class="entity" transform="translate(75 205)">
+    <rect class="box" width="545" height="205" rx="14"/><rect class="head-auth" width="545" height="54" rx="14"/><rect class="head-auth" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">auth.users</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text>
+    <text class="field" x="22" y="110">email : text</text><text class="field" x="22" y="138">user_metadata : jsonb</text>
+    <text class="field muted" x="22" y="176">Entidad externa administrada por Supabase Auth</text>
+  </g>
+  <g class="entity" transform="translate(75 455)">
+    <rect class="box" width="545" height="190" rx="14"/><rect class="head-auth" width="545" height="54" rx="14"/><rect class="head-auth" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">profiles</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> id → auth.users.id</text>
+    <text class="field" x="22" y="110">email · full_name · title</text><text class="field" x="22" y="138"><tspan class="uk">UK</tspan> username · avatar_url</text>
+    <text class="field muted" x="22" y="168">created_at · updated_at</text>
+  </g>
+  <g class="entity" transform="translate(75 675)">
+    <rect class="box" width="545" height="170" rx="14"/><rect class="head-auth" width="545" height="54" rx="14"/><rect class="head-auth" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">company_settings</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> id → auth.users.id</text>
+    <text class="field" x="22" y="110">company_name · sector · details</text><text class="field muted" x="22" y="142">created_at · updated_at</text>
+  </g>
+  <g class="entity" transform="translate(75 875)">
+    <rect class="box" width="545" height="200" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">categories</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110">name · slug</text>
+    <text class="field" x="22" y="138">icon_type · icon_name · icon_color</text><text class="field" x="22" y="166">icon_emoji</text>
+  </g>
+  <g class="entity" transform="translate(75 1105)">
+    <rect class="box" width="545" height="245" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">connectors</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="uk">UK</tspan> key : text</text>
+    <text class="field" x="22" y="138">name · description · logo_path</text><text class="field" x="22" y="166">section · status · sort_order</text>
+    <text class="field muted" x="22" y="208">Catálogo maestro de conectores</text>
+  </g>
+  <g class="entity" transform="translate(75 1390)">
+    <rect class="box" width="545" height="240" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">connector_app_configs</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> connector_key → connectors.key</text><text class="field" x="22" y="166">provider · tenant_id · client_id</text>
+    <text class="field" x="22" y="194">redirect_uri · scopes · metadata</text>
+  </g>
+  <g class="entity" transform="translate(75 1660)">
+    <rect class="box" width="545" height="225" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">connector_app_secrets</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="110"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> connector_key → connectors.key</text>
+    <text class="field" x="22" y="138">secret_payload : jsonb</text><text class="field" x="22" y="166">secret_version : integer</text>
+    <text class="field muted" x="22" y="198">Clave primaria compuesta</text>
+  </g>
+
+  <!-- Connectors -->
+  <g class="entity" transform="translate(705 205)">
+    <rect class="box" width="545" height="380" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">connector_instances</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> connector_key → connectors.key</text><text class="field" x="22" y="166">provider · name · auth_mode</text>
+    <text class="field" x="22" y="194">status · is_default</text><text class="field" x="22" y="222">config · health : jsonb</text>
+    <text class="field" x="22" y="250">last_sync_at · last_error</text><text class="field muted" x="22" y="292">Estados: draft → syncing/review → ready</text>
+    <text class="field muted" x="22" y="320">Proveedores: Power BI, Cube, Excel/conector</text><text class="field muted" x="22" y="348">created_at · updated_at</text>
+  </g>
+  <g class="entity" transform="translate(705 635)">
+    <rect class="box" width="545" height="210" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">connector_secrets</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> connection_id → connector_instances.id</text>
+    <text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text><text class="field" x="22" y="138">secret_payload : jsonb</text>
+    <text class="field" x="22" y="166">secret_version : integer</text>
+  </g>
+  <g class="entity" transform="translate(705 895)">
+    <rect class="box" width="545" height="250" rx="14"/><rect class="head-core" width="545" height="54" rx="14"/><rect class="head-core" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_sync_runs</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> connection_id → connector_instances.id</text><text class="field" x="22" y="166">status · scan_id</text>
+    <text class="field" x="22" y="194">started_at · completed_at · error_message</text><text class="field" x="22" y="222">counters · metadata : jsonb</text>
+  </g>
+  <g class="entity" transform="translate(705 1190)">
+    <rect class="box" width="545" height="300" rx="14"/><rect class="head-sem" width="545" height="54" rx="14"/><rect class="head-sem" y="40" width="545" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_metric_drafts</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> connection_id → connector_instances.id</text><text class="field" x="22" y="166">name · description · status</text>
+    <text class="field" x="22" y="194">expression · compiled_payload : jsonb</text><text class="field" x="22" y="222">dependencies[] · created_by_ai</text>
+    <text class="field" x="22" y="250">source_prompt</text>
+  </g>
+
+  <!-- Semantic -->
+  <g class="entity" transform="translate(1335 205)">
+    <rect class="box" width="675" height="225" rx="14"/><rect class="head-sem" width="675" height="54" rx="14"/><rect class="head-sem" y="40" width="675" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_models</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> connection_id → connector_instances.id</text><text class="field" x="22" y="166">provider · external_model_id · name · is_default</text>
+    <text class="field muted" x="22" y="198"><tspan class="uk">UK</tspan> (connection_id, external_model_id)</text>
+  </g>
+  <g class="entity" transform="translate(1335 485)">
+    <rect class="box" width="675" height="230" rx="14"/><rect class="head-sem" width="675" height="54" rx="14"/><rect class="head-sem" y="40" width="675" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_tables</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> model_id → semantic_models.id</text><text class="field" x="22" y="166">name · display_name · business_name · is_hidden</text>
+    <text class="field" x="22" y="194">approval_status · approved_by → auth.users.id</text>
+  </g>
+  <g class="entity" transform="translate(1335 755)">
+    <rect class="box" width="675" height="260" rx="14"/><rect class="head-sem" width="675" height="54" rx="14"/><rect class="head-sem" y="40" width="675" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_fields</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110"><tspan class="fk">FK</tspan> model_id → semantic_models.id</text>
+    <text class="field" x="22" y="138"><tspan class="fk">FK</tspan> table_id → semantic_tables.id</text><text class="field" x="22" y="166"><tspan class="uk">UK</tspan> (model_id, semantic_key)</text>
+    <text class="field" x="22" y="194">name · business_name · field_kind · data_type</text><text class="field" x="22" y="222">expression · is_hidden · is_sensitive · is_ai_enabled</text>
+  </g>
+  <g class="entity" transform="translate(1335 1055)">
+    <rect class="box" width="675" height="210" rx="14"/><rect class="head-sem" width="675" height="54" rx="14"/><rect class="head-sem" y="40" width="675" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_relationships</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id · <tspan class="fk">FK</tspan> model_id → semantic_models.id</text>
+    <text class="field" x="22" y="110">from_table/from_field → to_table/to_field</text><text class="field" x="22" y="138">cardinality · cross_filter_behavior · is_active</text>
+    <text class="field muted" x="22" y="176">Relaciones del modelo importado (referencias lógicas)</text>
+  </g>
+  <g class="entity" transform="translate(1335 1305)">
+    <rect class="box" width="675" height="210" rx="14"/><rect class="head-sem" width="675" height="54" rx="14"/><rect class="head-sem" y="40" width="675" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_aliases</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id · <tspan class="fk">FK</tspan> model_id → semantic_models.id</text>
+    <text class="field" x="22" y="110">semantic_key · entity_type · alias</text><text class="field" x="22" y="138">normalized_alias</text>
+    <text class="field muted" x="22" y="176"><tspan class="uk">UK</tspan> (model_id, normalized_alias, entity_type)</text>
+  </g>
+  <g class="entity" transform="translate(1335 1555)">
+    <rect class="box" width="675" height="330" rx="14"/><rect class="head-sem" width="675" height="54" rx="14"/><rect class="head-sem" y="40" width="675" height="14"/>
+    <text class="entity-title" x="22" y="35">semantic_metrics</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110">user_id : uuid (propietario; sin FK declarada)</text>
+    <text class="field" x="22" y="138"><tspan class="uk">UK</tspan> (user_id, slug) · (user_id, metric_key)</text><text class="field" x="22" y="166">name · description · expression</text>
+    <text class="field" x="22" y="194">compiled_expression · variables : jsonb</text><text class="field" x="22" y="222">dependencies[] · cube_dependencies[]</text>
+    <text class="field" x="22" y="250">format · status · created_by_ai · approved_at</text><text class="field muted" x="22" y="288">Métricas aprobadas independientes del catálogo importado</text>
+  </g>
+
+  <!-- AI / Reporting -->
+  <g class="entity" transform="translate(2080 205)">
+    <rect class="box" width="550" height="200" rx="14"/><rect class="head-ai" width="550" height="54" rx="14"/><rect class="head-ai" y="40" width="550" height="14"/>
+    <text class="entity-title" x="22" y="35">agents</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id : uuid</text><text class="field" x="22" y="110">name · description · system_prompt · category</text>
+    <text class="field" x="22" y="138">icon_type · icon_name · icon_color · icon_emoji</text><text class="field muted" x="22" y="172">created_at</text>
+  </g>
+  <g class="entity" transform="translate(2710 205)">
+    <rect class="box" width="180" height="200" rx="14"/><rect class="head-ai" width="180" height="54" rx="14"/><rect class="head-ai" y="40" width="180" height="14"/>
+    <text class="entity-title" x="18" y="35">skills</text>
+    <text class="field" x="18" y="82"><tspan class="pk">PK</tspan> id</text><text class="field" x="18" y="110">name</text>
+    <text class="field" x="18" y="138">description</text><text class="field" x="18" y="166">instruction</text>
+  </g>
+  <g class="entity" transform="translate(2080 455)">
+    <rect class="box" width="550" height="155" rx="14"/><rect class="head-ai" width="550" height="54" rx="14"/><rect class="head-ai" y="40" width="550" height="14"/>
+    <text class="entity-title" x="22" y="35">skill_agents</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> skill_id → skills.id</text>
+    <text class="field" x="22" y="110"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> agent_id → agents.id</text><text class="field muted" x="22" y="138">N:M agentes ↔ habilidades</text>
+  </g>
+  <g class="entity" transform="translate(2080 700)">
+    <rect class="box" width="550" height="155" rx="14"/><rect class="head-report" width="550" height="54" rx="14"/><rect class="head-report" y="40" width="550" height="14"/>
+    <text class="entity-title" x="22" y="35">template_agents</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> template_id → report_templates.id</text>
+    <text class="field" x="22" y="110"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> agent_id → agents.id</text><text class="field muted" x="22" y="138">N:M plantillas ↔ agentes</text>
+  </g>
+  <g class="entity" transform="translate(2710 455)">
+    <rect class="box" width="180" height="155" rx="14"/><rect class="head-report" width="180" height="54" rx="14"/><rect class="head-report" y="40" width="180" height="14"/>
+    <text class="entity-title" x="18" y="35">report_templates</text>
+    <text class="field" x="18" y="82"><tspan class="pk">PK</tspan> id</text><text class="field" x="18" y="110">name · category</text>
+    <text class="field" x="18" y="138">prompt · config</text>
+  </g>
+  <g class="entity" transform="translate(2710 700)">
+    <rect class="box" width="180" height="155" rx="14"/><rect class="head-report" width="180" height="54" rx="14"/><rect class="head-report" y="40" width="180" height="14"/>
+    <text class="entity-title" x="18" y="35">reports</text>
+    <text class="field" x="18" y="82"><tspan class="pk">PK</tspan> id</text><text class="field" x="18" y="110"><tspan class="fk">FK</tspan> template_id</text>
+    <text class="field" x="18" y="138">user_id · status</text>
+  </g>
+  <g class="entity" transform="translate(2080 920)">
+    <rect class="box" width="550" height="160" rx="14"/><rect class="head-report" width="550" height="54" rx="14"/><rect class="head-report" y="40" width="550" height="14"/>
+    <text class="entity-title" x="22" y="35">report_agents</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> report_id → reports.id</text>
+    <text class="field" x="22" y="110"><tspan class="pk">PK</tspan><tspan class="fk"> FK</tspan> agent_id → agents.id</text><text class="field muted" x="22" y="140">N:M informes ↔ agentes</text>
+  </g>
+  <g class="entity" transform="translate(2080 1120)">
+    <rect class="box" width="550" height="220" rx="14"/><rect class="head-ai" width="550" height="54" rx="14"/><rect class="head-ai" y="40" width="550" height="14"/>
+    <text class="entity-title" x="22" y="35">analysis_runs</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id · <tspan class="fk">FK</tspan> owner_user_id → auth.users.id</text>
+    <text class="field" x="22" y="110"><tspan class="fk">FK</tspan> connection_id → connector_instances.id</text><text class="field" x="22" y="138"><tspan class="fk">FK</tspan> report_id → reports.id</text>
+    <text class="field" x="22" y="166"><tspan class="fk">FK</tspan> agent_id → agents.id</text><text class="field" x="22" y="194">status · prompt · plan_payload · evidence_count</text>
+  </g>
+  <g class="entity" transform="translate(2080 1380)">
+    <rect class="box" width="550" height="190" rx="14"/><rect class="head-ai" width="550" height="54" rx="14"/><rect class="head-ai" y="40" width="550" height="14"/>
+    <text class="entity-title" x="22" y="35">analysis_evidence</text>
+    <text class="field" x="22" y="82"><tspan class="pk">PK</tspan> id · <tspan class="fk">FK</tspan> analysis_run_id → analysis_runs.id</text>
+    <text class="field" x="22" y="110">evidence_key · label · query_payload</text><text class="field" x="22" y="138">compiled_query · result_summary · row_count</text>
+    <text class="field" x="22" y="166">fingerprint · created_at</text>
+  </g>
+  <g class="entity" transform="translate(2710 1340)">
+    <rect class="box" width="180" height="170" rx="14"/><rect class="head-ai" width="180" height="54" rx="14"/><rect class="head-ai" y="40" width="180" height="14"/>
+    <text class="entity-title" x="18" y="35">report_agent_runs</text>
+    <text class="field" x="18" y="82"><tspan class="pk">PK</tspan> id</text><text class="field" x="18" y="110"><tspan class="fk">FK</tspan> report_id</text>
+    <text class="field" x="18" y="138"><tspan class="fk">FK</tspan> agent/run</text><text class="field" x="18" y="164">status · trace</text>
+  </g>
+
+  <g transform="translate(2080 1580)">
+    <rect class="box" width="810" height="305" rx="14"/>
+    <text class="entity-title" x="24" y="42">Leyenda y alcance</text>
+    <text class="field" x="24" y="82"><tspan class="pk">PK</tspan> clave primaria   <tspan class="fk">FK</tspan> clave foránea   <tspan class="uk">UK</tspan> restricción única</text>
+    <line x1="24" y1="118" x2="160" y2="118" class="rel"/><text class="legend" x="185" y="124">1:N (integridad referencial declarada)</text>
+    <line x1="24" y1="156" x2="160" y2="156" class="rel-dash"/><text class="legend" x="185" y="162">Relación con auth.users</text>
+    <text class="legend" x="24" y="204">Se muestran todas las entidades persistentes del esquema public y auth.users.</text>
+    <text class="legend" x="24" y="236">Se omiten estructuras de interfaz, tableros y gráficos. JSONB, timestamps y</text>
+    <text class="legend" x="24" y="264">campos no relacionales se resumen cuando no cambian la lectura del modelo.</text>
+  </g>
+
+  <text class="subtitle" x="70" y="2170">Fuente: supabase/migrations/01_reports_schema.sql … 14_semantic_onboarding_review.sql</text>
+</svg>

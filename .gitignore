@@ -1,0 +1,48 @@
+node_modules/
+.next/
+dist/
+build/
+# Entornos reales y copias; solo las plantillas sin secretos se versionan.
+.env*
+!.env.example
+*.pyc
+__pycache__/
+venv/
+.venv/
+.DS_Store
+cube/.cubestore/
+cube/.cubestore_backup/
+.cubestore/
+.cubestore_backup/
+.cube/
+cube/*.log
+cube/*_logs*.txt
+cube/logs2*.txt
+backend/runtime/
+scratch/bi-traces/
+scratch/qa-respuestas-2026-10-14/
+scratch/qa-respuestas-2026-10-15-fix/
+backend/backend/runtime/
+
+# Credenciales y archivos privados del equipo.
+.codex/
+.aws/
+*.pem
+*.key
+
+# Datos locales regenerables (no elimina archivos ya versionados).
+/data/*
+!/data/.gitkeep
+/cube/model/Excel_*.js
+/scratch/
+*.log
+frontend/test-results/
+frontend/playwright-report/
+*.tsbuildinfo
+
+# Herramientas y archivos privados locales
+.agents/
+*.bundle
+*.zip
+*.sqlite*
+coverage/
